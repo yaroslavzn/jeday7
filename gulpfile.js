@@ -12,16 +12,16 @@ var gulpif = require("gulp-if");
 gulp.task('sass', function () {
     return gulp.src('./src/scss/main.scss')
         .pipe(gp.sourcemaps.init())
+        .pipe(gp.sass())
         .pipe(gp.autoprefixer({
             browsers: [
                 'ie 8',
                 'ie 9',
                 '> 1%',
-                'last 4 versions',
+                'last 15 versions',
                 'Opera 12.1'
             ]
         }))
-        .pipe(gp.sass())
         .on('error', gp.notify.onError({
             title: 'Error in SASS'
         }))
@@ -33,7 +33,7 @@ gulp.task('sass', function () {
         }));
 });
 
-// pug
+// html
 
 gulp.task('html', function () {
     return gulp.src('./src/*.html')
@@ -122,6 +122,6 @@ gulp.task('serv', function () {
 
 gulp.task('default', gulp.series(
     'clean',
-    gulp.parallel('sass', 'pug', 'scripts', 'scripts:libs', 'fonts', 'images'),
+    gulp.parallel('sass', 'html', 'scripts', 'scripts:libs', 'fonts', 'images'),
     gulp.parallel('watch', 'serv')
 ));

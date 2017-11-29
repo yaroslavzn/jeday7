@@ -1,13 +1,13 @@
 {
-  "name": "gulp-template",
+  "name": "jeday7",
   "version": "1.0.0",
-  "description": "",
+  "description": "jeday 7 project from WebDesign Master",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Yaroslav Mishchenko",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.18.13",
@@ -24,5 +24,13 @@
     "gulp-sourcemaps": "^2.6.1",
     "gulp.spritesmith": "^6.7.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yaroslavzn/jeday7.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yaroslavzn/jeday7/issues"
+  },
+  "homepage": "https://github.com/yaroslavzn/jeday7#readme"
 }
