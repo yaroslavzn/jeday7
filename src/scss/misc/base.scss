@@ -24,10 +24,12 @@ body {
   line-height: 1.75;
   min-width: 320px;
   font-family: 'raleway';
+  overflow-x: hidden; 
 }
 
 html {
   box-sizing: border-box;
+  background-color: #fff;
 }
 
 *, *:before, *:after {
@@ -41,3 +43,8 @@ html {
   padding: 0 15px;
 }
 
+section, header {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}

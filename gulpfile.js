@@ -11,7 +11,6 @@ var gulpif = require("gulp-if");
 
 gulp.task('sass', function () {
     return gulp.src('./src/scss/main.scss')
-        .pipe(gp.sourcemaps.init())
         .pipe(gp.sass())
         .pipe(gp.autoprefixer({
             browsers: [
@@ -26,7 +25,6 @@ gulp.task('sass', function () {
             title: 'Error in SASS'
         }))
         .pipe(gp.csso())
-        .pipe(gp.sourcemaps.write())
         .pipe(gulp.dest('./build/css'))
         .pipe(browserSync.reload({
             stream: true
@@ -55,7 +53,8 @@ gulp.task('scripts', function () {
 
 gulp.task('scripts:libs', function () {
     return gulp.src([
-        './src/libs/jquery/jquery-3.2.1.min.js'
+        './src/libs/jquery/dist/jquery.min.js',
+        './src/libs/mmenu/js/jquery.mmenu.all.min.js'
     ])
         .pipe(gp.concat('libs.min.js'))
         .pipe(gulp.dest('./build/scripts'));
@@ -71,7 +70,7 @@ gulp.task('fonts', function () {
 // images
 
 gulp.task('images', function () {
-    return gulp.src(['./src/images/**/*.{jpg,png}',
+    return gulp.src(['./src/images/**/*.{jpg,png,svg}',
                     '!./src/images/{icons,icons/**}'])
         .pipe(gulp.dest('./build/images'));
 });
