@@ -125,6 +125,9 @@ html.mm-opened {
     text-align: center;
     p {
         margin-top: 40px;
+      @include breakpoint(480px) {
+        font-size: 14px;
+      }
     }
 
     .button {
@@ -133,15 +136,16 @@ html.mm-opened {
 }
 
 .welcome {
+
     p {
-        font-size: 14px;
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        white-space: nowrap;
-        margin: 0;
-        margin-bottom: 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      margin: 0;
+      margin-bottom: 10px;
 
         &::before, &::after {
             content: '';
@@ -152,24 +156,47 @@ html.mm-opened {
             display: inline-block;
         }
         span {
-            margin: 0 10px;
+          margin: 0 10px;
+          @include breakpoint(480px) {
+            font-size: 10px;
+          }
+
+          @include breakpoint(340px) {
+            font-size: 9px;
+          }
         }
 
     }
 
     .h1 {
-        font-size: 70px;
-        font-weight: 100;
-        border-bottom: 1px solid #fff;
-        white-space: nowrap;
-        margin-bottom: 20px;
-        padding-bottom: 20px;
+      font-size: 70px;
+      font-weight: 100;
+      border-bottom: 1px solid #fff;
+      white-space: nowrap;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+
+      @include breakpoint(1200px) {
+        font-size: 64px;
+      }
+
+      @include breakpoint(992px) {
+        font-size: 48px;
+      }
+
+      @include breakpoint(480px) {
+        font-size: 20px;
+      }
     }
 
     strong {
         text-transform: uppercase;
         display: block;
         font-size: 17px;
+
+      @include breakpoint(480px) {
+        font-size: 14px;
+      }
 
         .fa {
             font-size: 12px;
@@ -186,4 +213,72 @@ html.mm-opened {
     .button {
         margin-top: 20px;
     }
+}
+
+.header-social {
+  position: absolute;
+  display: flex;
+  right: 0;
+  top: 0;
+  height: 100%;
+  border-left: 1px solid rgba(#fff, .1);
+}
+
+.soc {
+  margin: auto;
+  padding: 0 12.5px;
+
+  li {
+    margin-bottom: 18px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: #2c2c2c;
+    font-size: 17px;
+    background-color: rgba(#fff, .2);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    text-decoration: none;
+    transition: background-color .3s ease;
+
+    &:hover {
+      background-color: rgba(#fff, .4);
+    }
+    i {
+      margin: auto;
+    }
+  }
+}
+
+.header-contacts {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid rgba(#fff, .1);
+  background-color: rgba($dark, .15);
+  padding: 12.5px 0;
+  text-align: center;
+
+  @include breakpoint(1200px) {
+    font-size: 14px;
+  }
+
+  @include breakpoint(768px) {
+    text-align: left;
+  }
+  .fa {
+    margin-right: 5px;
+    color: #555;
+  }
+}
+
+.phone-h {
+  font-family: firasans, sans-serif;
 }
