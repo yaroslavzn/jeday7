@@ -5,13 +5,17 @@ var gp = require('gulp-load-plugins')();
 var browserSync = require('browser-sync').create();
 var del = require('del');
 var spritesmith = require('gulp.spritesmith');
-var gulpif = require("gulp-if");
+var gulpif = require('gulp-if');
+
 
 // sass
 
 gulp.task('sass', function () {
     return gulp.src('./src/scss/main.scss')
         .pipe(gp.sass())
+        .on('error', gp.notify.onError({
+            title: 'Error in SASS'
+        }))
         .pipe(gp.autoprefixer({
             browsers: [
                 'ie 8',
@@ -20,9 +24,6 @@ gulp.task('sass', function () {
                 'last 15 versions',
                 'Opera 12.1'
             ]
-        }))
-        .on('error', gp.notify.onError({
-            title: 'Error in SASS'
         }))
         .pipe(gp.csso())
         .pipe(gulp.dest('./build/css'))
@@ -54,7 +55,9 @@ gulp.task('scripts', function () {
 gulp.task('scripts:libs', function () {
     return gulp.src([
         './src/libs/jquery/dist/jquery.min.js',
-        './src/libs/mmenu/js/jquery.mmenu.all.min.js'
+        './src/libs/mmenu/js/jquery.mmenu.all.min.js',
+        './src/libs/equalHeights/equalheights.js',
+        './src/libs/owl.carousel/owl.carousel.min.js'
     ])
         .pipe(gp.concat('libs.min.js'))
         .pipe(gulp.dest('./build/scripts'));
