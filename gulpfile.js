@@ -57,7 +57,8 @@ gulp.task('scripts:libs', function () {
         './src/libs/jquery/dist/jquery.min.js',
         './src/libs/mmenu/js/jquery.mmenu.all.min.js',
         './src/libs/equalHeights/equalheights.js',
-        './src/libs/owl.carousel/owl.carousel.min.js'
+        './src/libs/owl.carousel/owl.carousel.min.js',
+        './src/libs/fotorama/fotorama.js'
     ])
         .pipe(gp.concat('libs.min.js'))
         .pipe(gulp.dest('./build/scripts'));

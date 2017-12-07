@@ -30,14 +30,14 @@ body {
   overflow-x: hidden;
 }
 
-html {
-  box-sizing: border-box;
-  background-color: #fff;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+//html {
+//  //box-sizing: border-box;
+//  background-color: #fff;
+//}
+//
+//*, *:before, *:after {
+//  box-sizing: inherit;
+//}
 
 
 .container {
@@ -119,3 +119,90 @@ section, header {
   }
 }
 
+.inverse {
+  color: #fff;
+  background-color: $dark;
+}
+
+.section-overlay {
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($overlay, .92);
+
+  }
+}
+
+.s {
+  &-king, &-review, &-partners {
+    padding: 5% 0;
+
+    @include breakpoint(1200px) {
+      padding: 8% 0px;
+    }
+  }
+}
+
+section {
+  .h2 {
+    font-size: 30px;
+    font-weight: 800;
+    color: $accent;
+
+    span {
+      color: #fff;
+    }
+  }
+}
+
+.fotorama {
+
+  @include breakpoint(992px) {
+    margin: 0 auto;
+  }
+
+  &__thumb {
+    border: 4px solid #fff;
+
+    &-border {
+      border-color: rgba($overlay, .9);
+    }
+  }
+
+  &__arr--prev, &__arr--next {
+    &:before, &:after {
+      font-family: fontawesome;
+      font-size: 32px;
+    }
+  }
+
+  &__arr--next {
+    &:before {
+      content: '\f105';
+    }
+  }
+
+  &__arr--prev {
+    left: 25px;
+    &:before {
+      content: '\f104';
+    }
+  }
+}
+
+.fotorama__nav {
+  &-wrap {
+    position: absolute;
+    bottom: 15px;
+    padding: 0 30px;
+    width: 100%;
+  }
+
+  &:after, &:before {
+    display: none;
+  }
+}
