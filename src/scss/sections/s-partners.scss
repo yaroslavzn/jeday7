@@ -1,0 +1,80 @@
+.s-partners {
+
+  .h2 {
+    span {
+      color: $accent;
+    }
+  }
+  
+  &::before {
+    background-color: rgba(#fff, .9);
+  }
+
+  @include breakpoint(768px) {
+    padding: 3% 0;
+  }
+}
+
+.partners {
+  display: flex;
+  .partner {
+    height: 100%;
+    margin: auto;
+    display: flex;
+  }
+
+  .owl-stage {
+    display: flex;
+
+  }
+
+  .owl-item {
+    margin-top: 30px;
+
+    img {
+      max-width: 100%;
+      width: auto;
+      display: inline-block;
+      margin: auto;
+    }
+  }
+
+  .owl-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+
+    > div {
+      position: absolute;
+      top: 50px;
+      color: #999;
+      font-size: 30px;
+      transition: opacity .3s ease;
+
+
+      &:hover {
+        opacity: .6;
+      }
+
+      &.owl-prev {
+        left: -60px;
+        padding: 0 10px;
+
+        @include breakpoint(768px) {
+          left: 0;
+        }
+      }
+
+      &.owl-next {
+        right: -60px;
+        padding: 0 10px;
+
+        @include breakpoint(768px) {
+          right: 0;
+        }
+      }
+    }
+  }
+}
