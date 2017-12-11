@@ -30,6 +30,10 @@ body {
   overflow-x: hidden;
 }
 
+.text-center {
+  text-align: center;
+}
+
 //html {
 //  //box-sizing: border-box;
 //  background-color: #fff;
@@ -203,6 +207,10 @@ section {
   }
 
   &:after, &:before {
+    display: none;
+  }
+
+  @include breakpoint(480px) {
     display: none;
   }
 }
