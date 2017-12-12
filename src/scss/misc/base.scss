@@ -50,6 +50,70 @@ body {
   padding: 0 15px;
 }
 
+@mixin opacity($opacity) {
+  opacity: $opacity / 100;
+  filter: alpha(opacity = $opacity);
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: $dark;
+
+  .pulse {
+    position: absolute;
+    left: 50%;
+    top: 50vh;
+    margin-left: -40px;
+    margin-top: -40px;
+
+    &::before, &::after {
+      content: '';
+      border: 5px solid #323232;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      position: absolute;
+    }
+    &::before {
+      animation: pulse-outer .8s ease-in infinite;
+    }
+
+    &::after {
+      animation: pulse-inner .8s linear infinite;
+    }
+  }
+}
+
+@keyframes pulse-outer {
+  0% {
+    @include opacity(100);
+  }
+  50% {
+    @include opacity(50);
+  }
+  100% {
+    @include opacity(0);
+  }
+}
+
+@keyframes pulse-inner {
+  0% {
+    @include opacity(100);
+    transform: scale(0);
+  }
+  100% {
+    @include opacity(100);
+    transform: scale(1);
+  }
+}
+
+
+
 section, header {
   position: relative;
   background-size: cover;
@@ -212,5 +276,33 @@ section {
 
   @include breakpoint(480px) {
     display: none;
+  }
+}
+
+.top {
+  position: fixed;
+  bottom: 25px;
+  right: -100px;
+  background-color: #e0e0e0;
+  z-index: 12;
+  border-radius: 50%;
+  color: #666;
+  font-size: 26px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  transition: all .3s ease;
+  opacity: .5;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+    color: #fff;
+    background-color: $accent;
+  }
+
+  &.active {
+    right: 25px;
   }
 }

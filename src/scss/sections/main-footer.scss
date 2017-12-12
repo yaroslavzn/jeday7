@@ -1,0 +1,137 @@
+.main-footer {
+  background-color: #242424;
+  padding: 3% 0;
+  color: #fff;
+  font-size: 14px;
+}
+
+.footer-column {
+  margin: 15px 0;
+}
+
+.logo-footer {
+  width: 125px;
+  height: auto;
+  margin-bottom: 15px;
+
+  & + p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+}
+
+.social-footer {
+  margin-top: 40px;
+
+  @include breakpoint(768px) {
+    margin-top: 10px;
+  }
+
+  .soc {
+    padding: 0;
+    li {
+      margin: 0 3px;
+      display: inline-block;
+      a {
+        color: #ababab;
+        transition: all .5s ease;
+        &:hover {
+          color: rgba(#fff, .8);
+        }
+
+        @include breakpoint(768px) {
+
+        }
+      }
+    }
+  }
+}
+
+.footer-menu {
+  @include breakpoint(480px) {
+    padding-left: 20px;
+  }
+  li.active {
+    a {
+      color: $accent;
+
+      &::before {
+        color: $accent;
+      }
+    }
+  }
+  a {
+    color: #979797;
+    transition: color .3s ease;
+    display: inline-block;
+    padding: 3px 0;
+    text-decoration: underline;
+    padding-left: 23px;
+    position: relative;
+
+    &:hover, &:focus {
+      color: $accent;
+      &:before {
+        color: $accent;
+        transition: color .3s ease;
+      }
+    }
+
+    &:before {
+      content: '\f219';
+      font-family: fontawesome;
+      position: absolute;
+      left: 0;
+      top: 6px;
+      font-size: 12px;
+    }
+  }
+}
+
+.footer-addr {
+  position: relative;
+  font-size: 15px;
+  padding-left: 24px;
+  margin-bottom: 20px;
+
+  @include breakpoint(992px) {
+    margin-bottom: 15px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .fa {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-size: 18px;
+    color: #555;
+  }
+
+  .footer-phone {
+    font-size: 26px;
+    font-family: firasans, sans-serif;
+
+    @include breakpoint(992px) {
+      font-size: 22px;
+    }
+
+    .fa {
+      top: 9px;
+      font-size: 22px;
+    }
+  }
+}
+
+.map {
+  max-height: 200px;
+  opacity: .7;
+  transition: opacity .3s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
