@@ -146,9 +146,11 @@ $(function () {
         }, 'slow', 'swing');
     });
 
-    // preloader function
+    
+});
 
-    $(window).on('load', function () {
+// preloader function
+
+$(window).on('load', function () {
         $('.preloader').delay(750).fadeOut('slow');
-    });
 });
